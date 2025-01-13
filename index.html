@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide for Telugu Autocomplete Assistant</title>
+    <style>
+        :root {
+            --video-width: 800px;
+            --video-height: 450px;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+        .logo {
+            margin-bottom: 20px;
+        }
+        .logo img {
+            width: 150px;
+            height: auto;
+        }
+        .content {
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #333;
+        }
+        p {
+            font-size: 1rem;
+            color: #666;
+            margin: 10px 0;
+        }
+        .video-container {
+            position: relative;
+            width: var(--video-width);
+            height: var(--video-height);
+            margin: 20px 0;
+        }
+        .video-container iframe {
+            width: var(--video-width);
+            height: var(--video-height);
+            border: none;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 5px;
+            z-index: 10;
+            display: none;
+        }
+        .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .arrow-left {
+            left: -42px;
+        }
+        .arrow-right {
+            right: -42px;
+        }
+        .arrow-right:hover::after {
+            content: "How to Install Telugu Keyboard";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1rem;
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        .links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .links a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="Perceptive_Analytics_logo.jpg" alt="Company Logo">
+    </div>
+    <div class="content">
+        <h1>Telugu Autocomplete Assistant</h1>
+        <p>Our innovative Telugu typing tool helps writers and users type faster and easier in Telugu. Whether you're drafting a document or writing a note, this tool makes the process seamless and efficient.</p>
+    </div>
+    <div class="video-container">
+        <iframe id="videoFrame" src="Hima Bindu Telugu Input Demo compressed.mp4" title="Video"></iframe>
+        <button class="arrow arrow-left" id="prevBtn">&#9664;</button>
+        <button class="arrow arrow-right" id="nextBtn">&#9654;</button>
+    </div>
+    <div class="links">
+        <a href="https://telugu.perceptive-analytics.com/" target="_blank">Go to Telugu Typing Tool</a>
+        <a href="https://anotepad.com/" target="_blank">Open Notepad</a>
+        <a href="https://telugu.perceptive-analytics.com/voice-type/" target="_blank">Telugu Voice Typing</a>
+    </div>
+
+    <script>
+        const videos = [
+            "Hima Bindu Telugu Input Demo compressed.mp4",
+            "Installing Telugu Keyboard compressed.mp4"
+        ];
+        let currentIndex = 0;
+
+        const videoFrame = document.getElementById("videoFrame");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        // Update video and button visibility based on index
+        function updateVideo() {
+            videoFrame.src = videos[currentIndex];
+            prevBtn.style.display = currentIndex > 0 ? "block" : "none";
+            nextBtn.style.display = currentIndex < videos.length - 1 ? "block" : "none";
+        }
+
+        prevBtn.addEventListener("click", () => {
+            currentIndex = currentIndex > 0 ? currentIndex - 1 : currentIndex;
+            updateVideo();
+        });
+
+        nextBtn.addEventListener("click", () => {
+            currentIndex = currentIndex < videos.length - 1 ? currentIndex + 1 : currentIndex;
+            updateVideo();
+        });
+
+        // Initial setup
+        updateVideo();
+    </script>
+</body>
+</html>
